@@ -1,18 +1,25 @@
 import { useLayoutEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 /**
- * When the route includes a hash (e.g. /#experience), scroll the target section into view.
+ * Scroll to a section after navigating home with { state: { scrollTo: 'section-id' } }.
  */
 export function ScrollToHash() {
-  const { pathname, hash } = useLocation()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const scrollTo = location.state?.scrollTo
 
   useLayoutEffect(() => {
-    if (!hash || pathname !== '/') return
-    const id = hash.replace(/^#/, '')
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [pathname, hash])
+    if (!scrollTo) return
+    const el = document.getElementById(scrollTo)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    navigate(
+      { pathname: location.pathname, hash: location.hash, search: location.search },
+      { replace: true, state: {} },
+    )
+  }, [scrollTo, location.pathname, location.hash, location.search, navigate])
 
   return null
 }

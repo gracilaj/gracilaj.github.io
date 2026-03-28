@@ -1087,10 +1087,23 @@ a:hover {
 
 .back-link {
   display: inline-block;
+  font: inherit;
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
   margin-bottom: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--accent);
+  text-align: left;
+}
+
+.back-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .experience-detail-header {

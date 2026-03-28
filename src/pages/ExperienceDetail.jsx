@@ -1,9 +1,9 @@
-import { Link, useParams, Navigate } from 'react-router-dom'
+import { Link, useParams, Navigate, useNavigate } from 'react-router-dom'
 import { getExperienceById } from '../data/experience'
 import { getSystemsByExperienceId } from '../data/systems'
-import { homeSectionHref } from '../utils/publicUrl'
 
 export function ExperienceDetail() {
+  const navigate = useNavigate()
   const { experienceId } = useParams()
   const job = getExperienceById(experienceId)
   const related = job ? getSystemsByExperienceId(job.id) : []
@@ -15,9 +15,13 @@ export function ExperienceDetail() {
   return (
     <article className="experience-detail">
       <div className="container narrow">
-        <a href={homeSectionHref('experience')} className="back-link">
+        <button
+          type="button"
+          className="back-link"
+          onClick={() => navigate('/', { state: { scrollTo: 'experience' } })}
+        >
           ← Back to experience
-        </a>
+        </button>
         <header className="experience-detail-header">
           <div className="experience-detail-brand">
             <img

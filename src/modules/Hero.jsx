@@ -1,5 +1,5 @@
 import { profile } from '../data/profile'
-import { homeSectionHref } from '../utils/publicUrl'
+import { SectionScrollLink } from '../components/SectionScrollLink'
 
 const titleParts = profile.title.trim().split(/\s+/)
 const titleAccent = titleParts.pop() ?? ''
@@ -31,13 +31,13 @@ export function Hero() {
           </h1>
           <p className="hero-lead">{profile.heroBio}</p>
           <div className="hero-actions">
-            <a href={homeSectionHref('contact')} className="btn btn-primary">
+            <SectionScrollLink sectionId="contact" className="btn btn-primary">
               Get in touch
-            </a>
-            <a href={homeSectionHref('experience')} className="btn btn-ghost btn-with-icon">
+            </SectionScrollLink>
+            <SectionScrollLink sectionId="experience" className="btn btn-ghost btn-with-icon">
               <span className="btn-icon-play" aria-hidden="true" />
               Browse experience
-            </a>
+            </SectionScrollLink>
           </div>
         </div>
         <div className="hero-visual">

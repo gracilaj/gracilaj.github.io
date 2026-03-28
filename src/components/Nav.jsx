@@ -1,6 +1,6 @@
 import { NavLink, Link } from 'react-router-dom'
 import { experiences } from '../data/experience'
-import { homeSectionHref } from '../utils/publicUrl'
+import { SectionScrollLink } from './SectionScrollLink'
 
 const sectionLinks = [
   { id: 'objective', label: 'Objective' },
@@ -27,9 +27,9 @@ export function Nav() {
         </Link>
         <nav className="nav-primary" aria-label="Primary">
           {sectionLinks.map(({ id, label }) => (
-            <a key={id} href={homeSectionHref(id)} className="nav-link">
+            <SectionScrollLink key={id} sectionId={id} className="nav-link">
               {label}
-            </a>
+            </SectionScrollLink>
           ))}
         </nav>
         <details className="nav-roles nav-roles-desktop">
@@ -67,9 +67,9 @@ export function Nav() {
           <div className="nav-mobile-panel">
             <nav aria-label="Mobile primary">
               {sectionLinks.map(({ id, label }) => (
-                <a key={id} href={homeSectionHref(id)} className="nav-mobile-link">
+                <SectionScrollLink key={id} sectionId={id} className="nav-mobile-link">
                   {label}
-                </a>
+                </SectionScrollLink>
               ))}
             </nav>
             <p className="nav-mobile-heading">Roles</p>
