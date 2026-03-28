@@ -29,22 +29,34 @@ export function Hero() {
           </h1>
           <p className="hero-lead">{profile.heroBio}</p>
           <div className="hero-actions">
-            <SectionScrollLink sectionId="contact" className="btn btn-primary">
-              Get in touch
+            <SectionScrollLink
+              sectionId="contact"
+              className="btn btn-primary btn-hero-action"
+              aria-label="Get in touch"
+            >
+              <span className="btn-label-full">Get in touch</span>
+              <span className="btn-label-short">Contact</span>
             </SectionScrollLink>
             <a
               href={profile.resume.url}
               target="_blank"
               rel="noopener noreferrer"
               download={profile.resume.fileName}
-              className="btn btn-ghost btn-with-icon"
+              className="btn btn-ghost btn-with-icon btn-hero-action"
+              aria-label="Download resume"
             >
               <span className="btn-icon-download" aria-hidden="true" />
-              Download resume
+              <span className="btn-label-full">Download resume</span>
+              <span className="btn-label-short">Résumé</span>
             </a>
-            <SectionScrollLink sectionId="experience" className="btn btn-ghost btn-with-icon">
+            <SectionScrollLink
+              sectionId="experience"
+              className="btn btn-ghost btn-with-icon btn-hero-action"
+              aria-label="Browse experience"
+            >
               <span className="btn-icon-play" aria-hidden="true" />
-              Browse Experience
+              <span className="btn-label-full">Browse Experience</span>
+              <span className="btn-label-short">Experience</span>
             </SectionScrollLink>
           </div>
         </div>

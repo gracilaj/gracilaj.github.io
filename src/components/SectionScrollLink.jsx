@@ -6,6 +6,7 @@ export function SectionScrollLink({
   children,
   onActivate,
   isActive = false,
+  'aria-label': ariaLabel,
 }) {
   const navigate = useNavigate()
   const location = useLocation()
@@ -15,6 +16,7 @@ export function SectionScrollLink({
     <a
       href="#"
       className={cls}
+      aria-label={ariaLabel}
       aria-current={isActive ? 'location' : undefined}
       onClick={(e) => {
         e.preventDefault()

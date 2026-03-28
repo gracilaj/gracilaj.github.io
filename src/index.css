@@ -512,6 +512,63 @@ a:hover {
   gap: 1rem 1.25rem;
 }
 
+.btn-label-short {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+    align-items: stretch;
+    max-width: 100%;
+  }
+
+  .hero-actions .btn-hero-action {
+    min-width: 0;
+    padding: 0.5rem 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    hyphens: auto;
+  }
+
+  .hero-actions .btn-hero-action.btn-with-icon {
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.45rem 0.35rem;
+  }
+
+  .hero-actions .btn-label-full {
+    display: none;
+  }
+
+  .hero-actions .btn-label-short {
+    display: block;
+  }
+
+  .hero-actions .btn-icon-play,
+  .hero-actions .btn-icon-download {
+    width: 1.55rem;
+    height: 1.55rem;
+    border-width: 1.5px;
+  }
+
+  .hero-actions .btn-icon-play::after {
+    border-width: 4px 0 4px 6px;
+    margin-left: 2px;
+  }
+
+  .hero-actions .btn-icon-download::after {
+    width: 9px;
+    height: 5px;
+    bottom: 26%;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
