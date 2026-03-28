@@ -1,12 +1,13 @@
-# Publishes the Vite build to GitHub Pages via the official Actions API.
+# Copies the Vite build into docs/ on main and pushes.
 #
-# REQUIRED (one-time): Repo → Settings → Pages → Build and deployment → Source:
-#   select "GitHub Actions" (NOT "Deploy from a branch").
-# If Source stays on "main" / root, the site will load /src/main.jsx and MIME errors.
+# GitHub Pages must publish THAT folder (not repo root):
+#   Settings → Pages → Source: Deploy from a branch
+#   Branch: main   Folder: /docs
 #
-# URL: https://gracilaj.github.io/
+# If Source is "main" + "/" (root), you will always get the MIME error (/src/main.jsx).
+# "GitHub Actions" as Source is optional; this workflow does not require it.
 
-name: Deploy to GitHub Pages
+name: Publish site to docs
 
 on:
   push:
@@ -14,19 +15,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: publish-docs
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -34,20 +36,21 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/copy-spa-fallback.mjs
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Sync dist → docs/ and push to main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          rm -rf docs
+          mkdir -p docs
+          cp -a dist/. docs/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --staged --quiet; then
+            echo "No changes under docs/ to commit."
+            exit 0
+          fi
+          git commit -m "chore: publish site to docs for GitHub Pages"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push origin HEAD:main
