@@ -15,6 +15,7 @@ export const skillGroups = [
       { name: 'jQuery', years: 5, icon: 'jquery' },
       { name: 'Bootstrap 4 / Responsive Design', years: 5, icon: 'bootstrap' },
       { name: 'React.js', years: 2, icon: 'react' },
+      { name: 'Vue.js', years: 1, icon: 'vuedotjs' },
     ],
   },
   {

@@ -22,7 +22,9 @@ export function SkillGroup({ label, items }) {
               )}
               <span className="skill-name">{item.name}</span>
               {item.years != null && (
-                <span className="skill-years">{item.years} yrs</span>
+                <span className="skill-years">
+                  {item.years === 1 ? '1 yr' : `${item.years} yrs`}
+                </span>
               )}
             </li>
           )

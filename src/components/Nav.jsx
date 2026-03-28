@@ -1,3 +1,4 @@
+import { useRef, useCallback } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { experiences } from '../data/experience'
 import { SectionScrollLink } from './SectionScrollLink'
@@ -12,10 +13,15 @@ const sectionLinks = [
 ]
 
 export function Nav() {
+  const navMobileRef = useRef(null)
+  const closeMobileMenu = useCallback(() => {
+    navMobileRef.current?.removeAttribute('open')
+  }, [])
+
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={closeMobileMenu}>
           <span className="logo-mark-box" aria-hidden="true">
             <span className="logo-mark-lines">
               <span />
@@ -60,14 +66,19 @@ export function Nav() {
             ))}
           </div>
         </details>
-        <details className="nav-mobile">
+        <details ref={navMobileRef} className="nav-mobile">
           <summary className="nav-mobile-trigger" aria-label="Open menu">
             <span className="nav-mobile-bars" aria-hidden="true" />
           </summary>
           <div className="nav-mobile-panel">
             <nav aria-label="Mobile primary">
               {sectionLinks.map(({ id, label }) => (
-                <SectionScrollLink key={id} sectionId={id} className="nav-mobile-link">
+                <SectionScrollLink
+                  key={id}
+                  sectionId={id}
+                  className="nav-mobile-link"
+                  onActivate={closeMobileMenu}
+                >
                   {label}
                 </SectionScrollLink>
               ))}
@@ -81,6 +92,7 @@ export function Nav() {
                   className={({ isActive }) =>
                     `nav-mobile-role${isActive ? ' is-active' : ''}`
                   }
+                  onClick={closeMobileMenu}
                 >
                   <img
                     className="nav-roles-logo"

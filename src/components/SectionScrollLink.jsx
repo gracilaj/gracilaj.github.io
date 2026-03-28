@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 
-export function SectionScrollLink({ sectionId, className, children }) {
+export function SectionScrollLink({ sectionId, className, children, onActivate }) {
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -17,6 +17,7 @@ export function SectionScrollLink({ sectionId, className, children }) {
         } else {
           navigate('/', { state: { scrollTo: sectionId } })
         }
+        onActivate?.()
       }}
     >
       {children}
