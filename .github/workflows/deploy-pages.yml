@@ -27,7 +27,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - run: node scripts/write-gh-pages-404.mjs
+      - run: node scripts/copy-spa-fallback.mjs
       - name: Push dist to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
