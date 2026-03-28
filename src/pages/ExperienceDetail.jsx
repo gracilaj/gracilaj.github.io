@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { getExperienceById } from '../data/experience'
 import { getSystemsByExperienceId } from '../data/systems'
+import { homeSectionHref } from '../utils/publicUrl'
 
 export function ExperienceDetail() {
   const { experienceId } = useParams()
@@ -14,7 +15,7 @@ export function ExperienceDetail() {
   return (
     <article className="experience-detail">
       <div className="container narrow">
-        <a href="/#experience" className="back-link">
+        <a href={homeSectionHref('experience')} className="back-link">
           ← Back to experience
         </a>
         <header className="experience-detail-header">

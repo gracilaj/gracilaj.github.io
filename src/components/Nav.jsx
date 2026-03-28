@@ -1,13 +1,14 @@
 import { NavLink, Link } from 'react-router-dom'
 import { experiences } from '../data/experience'
+import { homeSectionHref } from '../utils/publicUrl'
 
 const sectionLinks = [
-  { to: '/#objective', label: 'Objective' },
-  { to: '/#skills', label: 'Skills' },
-  { to: '/#experience', label: 'Experience' },
-  { to: '/#systems', label: 'Systems' },
-  { to: '/#education', label: 'Education' },
-  { to: '/#contact', label: 'Contact' },
+  { id: 'objective', label: 'Objective' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'systems', label: 'Systems' },
+  { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export function Nav() {
@@ -25,8 +26,8 @@ export function Nav() {
           <span className="logo-text">JG</span>
         </Link>
         <nav className="nav-primary" aria-label="Primary">
-          {sectionLinks.map(({ to, label }) => (
-            <a key={to} href={to} className="nav-link">
+          {sectionLinks.map(({ id, label }) => (
+            <a key={id} href={homeSectionHref(id)} className="nav-link">
               {label}
             </a>
           ))}
@@ -65,8 +66,8 @@ export function Nav() {
           </summary>
           <div className="nav-mobile-panel">
             <nav aria-label="Mobile primary">
-              {sectionLinks.map(({ to, label }) => (
-                <a key={to} href={to} className="nav-mobile-link">
+              {sectionLinks.map(({ id, label }) => (
+                <a key={id} href={homeSectionHref(id)} className="nav-mobile-link">
                   {label}
                 </a>
               ))}
