@@ -1,6 +1,7 @@
 /**
  * Technical skills — `icon` is a Simple Icons slug (cdn.simpleicons.org).
  * Use their exact slug (e.g. CSS is `css`, not `css3`).
+ * For broad categories without one logo, pick a representative Simple Icons slug (e.g. `huggingface` for AI-assisted dev).
  * Omit `icon` only when no sensible brand exists.
  */
 export const skillGroups = [
@@ -80,6 +81,8 @@ export const skillGroups = [
     items: [
       { name: 'Eclipse IDE', years: 5, icon: 'eclipseide' },
       { name: 'VS Code', years: 5, icon: 'vscode' },
+      { name: 'Cursor', years: 1, icon: 'cursor' },
+      { name: 'AI web development', years: 1, icon: 'huggingface' },
       { name: 'MySQL Workbench', years: 5, icon: 'mysql' },
       { name: 'Git & GitHub', years: 5, icon: 'github' },
     ],
