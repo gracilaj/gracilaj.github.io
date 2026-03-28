@@ -1,6 +1,5 @@
-# Pushes built site to branch `gh-pages`.
-# Settings → Pages → Source: Deploy from a branch → gh-pages → / (root)
-# User site URL: https://gracilaj.github.io/
+# Builds the site and commits it to main:docs/ so GitHub Pages can use
+# "Deploy from branch" → main → /docs (avoids serving raw /src/main.jsx from repo root).
 
 name: Deploy to GitHub Pages
 
@@ -21,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -28,19 +29,14 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/copy-spa-fallback.mjs
-      - name: Push dist to gh-pages branch
+      - name: Publish build to docs/ on main
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages
-          force_orphan: true
-      - name: Pages source reminder
+          publish_branch: main
+          destination_dir: docs
+          keep_files: true
+      - name: Pages settings reminder
         run: |
-          echo ""
-          echo "=========================================="
-          echo "IMPORTANT: GitHub Pages must publish the BUILT site."
-          echo "Repo Settings → Pages → Build and deployment → Source:"
-          echo "  Branch: gh-pages   Folder: / (root)"
-          echo "NOT branch main (that only has source code — blank page)."
-          echo "=========================================="
+          echo "Settings → Pages → Deploy from branch → Branch: main → Folder: /docs"
