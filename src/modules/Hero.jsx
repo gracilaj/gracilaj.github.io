@@ -6,7 +6,7 @@ const titleAccent = titleParts.pop() ?? ''
 const titleLead = titleParts.join(' ')
 
 const statChips = [
-  { ix: '01', value: '5+', label: 'Years Experience' },
+  { ix: '01', value: '6+', label: 'Years Experience' },
   { ix: '02', value: 'Full-stack', label: 'Web & APIs' },
   { ix: '03', value: 'LAMP', label: 'Core stack' },
   { ix: '04', value: 'MERN', label: 'Core stack' },

@@ -90,9 +90,9 @@ export const experiences = [
     location: 'Metro Manila',
     arrangement: 'Hybrid',
     period: 'Feb 2026 – Present',
-    role: 'Full Stack Developer',
+    role: 'Senior Web Developer',
     summary:
-      'Full-stack developer at a BPO, building front- and back-end features to meet system requirements for HRIS, inventory, and other internal and client-facing applications.',
+      'Senior web developer at a BPO, building front- and back-end features to meet system requirements for HRIS, inventory, and other internal and client-facing applications.',
     responsibilities: [
       'Design and implement front- and back-end features based on documented system requirements.',
       'Develop and maintain HRIS, inventory, and related operational systems.',

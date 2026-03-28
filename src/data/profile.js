@@ -5,12 +5,12 @@ export const profile = {
   name: 'Jake Gracila',
   firstName: 'Jake',
   title: 'Full-Stack Web Developer',
-  tagline: '5+ years building web applications, APIs, and integrations.',
-  heroBio: `Full-Stack Web Developer with 5 years of experience building web applications, APIs, and integrations. Collaborative, solution-driven, and focused on shipping reliable software.`,
+  tagline: '6+ years building web applications, APIs, and integrations.',
+  heroBio: `Full-Stack Web Developer with 6 years of experience building web applications, APIs, and integrations. Collaborative, solution-driven, and focused on shipping reliable software.`,
   /** Swap this file in /public for your own photo */
   heroImage: '/profile.jpg',
   heroImageAlt: 'Jake Gracila',
-  objective: `Full-Stack Web Developer with 5 years of experience developing and integrating multi-faceted applications to facilitate smooth business operations. Solution-driven Full-Stack Web Developer adept at contributing to a highly collaborative work environment, finding solutions, and determining customer satisfaction.`,
+  objective: `Full-Stack Web Developer with 6 years of experience developing and integrating multi-faceted applications to facilitate smooth business operations. Solution-driven Full-Stack Web Developer adept at contributing to a highly collaborative work environment, finding solutions, and determining customer satisfaction.`,
   /** Portfolio source on GitHub */
   githubRepo: 'https://github.com/gracilaj/gracilaj.github.io',
   contact: {
