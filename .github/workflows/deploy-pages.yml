@@ -1,7 +1,6 @@
 # Pushes built site to branch `gh-pages`.
-# In the repo: Settings → Pages → Build and deployment → Source:
-#   "Deploy from a branch" → Branch gh-pages → folder / (root)
-# Site URL: https://<username>.github.io/portfolio/
+# Settings → Pages → Source: Deploy from a branch → gh-pages → / (root)
+# User site URL: https://gracilaj.github.io/
 
 name: Deploy to GitHub Pages
 

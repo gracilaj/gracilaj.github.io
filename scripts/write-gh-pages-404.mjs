@@ -1,8 +1,9 @@
 import { writeFileSync } from 'node:fs'
 
-/** Must match vite.config.js GITHUB_REPO */
-const REPO = 'portfolio'
-
+/**
+ * User GitHub Pages site at domain root (e.g. gracilaj.github.io).
+ * Turns /experience/foo into /#/experience/foo for HashRouter.
+ */
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -11,15 +12,11 @@ const html = `<!doctype html>
   <title>Redirecting...</title>
   <script>
     (function () {
-      var base = '/${REPO}';
-      var p = window.location.pathname;
-      if (!p.startsWith(base)) return;
-      var rest = p.slice(base.length);
-      if (!rest || rest === '/') rest = '/';
-      else if (!rest.startsWith('/')) rest = '/' + rest;
-      var hash = '#' + (rest === '/' ? '/' : rest);
+      var p = window.location.pathname || '/';
+      if (p === '/' || p === '') return;
+      var inner = p.replace(/^\\/+/,'').replace(/\\/$/, '');
       window.location.replace(
-        window.location.origin + base + '/' + hash + window.location.search
+        window.location.origin + '/#/' + inner + window.location.search
       );
     })();
   </script>

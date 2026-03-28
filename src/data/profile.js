@@ -12,7 +12,7 @@ export const profile = {
   heroImageAlt: 'Jake Gracila',
   objective: `Full-Stack Web Developer with 5 years of experience developing and integrating multi-faceted applications to facilitate smooth business operations. Solution-driven Full-Stack Web Developer adept at contributing to a highly collaborative work environment, finding solutions, and determining customer satisfaction.`,
   /** Portfolio source on GitHub */
-  githubRepo: 'https://github.com/gracilaj/portfolio',
+  githubRepo: 'https://github.com/gracilaj/gracilaj.github.io',
   contact: {
     location: 'Dasmariñas, Cavite',
     email: 'gracilaj@gmail.com',
