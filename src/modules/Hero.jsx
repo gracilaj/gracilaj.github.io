@@ -36,7 +36,7 @@ export function Hero() {
             </SectionScrollLink>
             <SectionScrollLink sectionId="experience" className="btn btn-ghost btn-with-icon">
               <span className="btn-icon-play" aria-hidden="true" />
-              Browse experience
+              Browse Experience
             </SectionScrollLink>
           </div>
         </div>

@@ -1,5 +1,6 @@
 /**
  * Technical skills — `icon` is a Simple Icons slug (cdn.simpleicons.org).
+ * Use their exact slug (e.g. CSS is `css`, not `css3`).
  * Omit `icon` only when no sensible brand exists.
  */
 export const skillGroups = [
@@ -8,7 +9,7 @@ export const skillGroups = [
     label: 'Front-End',
     items: [
       { name: 'HTML5', years: 5, icon: 'html5' },
-      { name: 'CSS3', years: 5, icon: 'css3' },
+      { name: 'CSS3', years: 5, icon: 'css' },
       { name: 'JavaScript', years: 5, icon: 'javascript' },
       { name: 'jQuery', years: 5, icon: 'jquery' },
       { name: 'Bootstrap 4 / Responsive Design', years: 5, icon: 'bootstrap' },

@@ -6,8 +6,8 @@ export function ExperienceSection() {
   return (
     <Section id="experience" eyebrow="Work history" title="Experience">
       <p className="section-lead">
-        Each role has its own page for responsibilities and related systems — open the{' '}
-        <strong>Roles</strong> menu or choose a card below.
+        Each role links to a page with responsibilities and related systems—use the{' '}
+        <strong>Roles</strong> menu or a card below.
       </p>
       <ul className="experience-grid">
         {experiences.map((job) => (

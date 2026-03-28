@@ -20,7 +20,7 @@ export function ExperienceDetail() {
           className="back-link"
           onClick={() => navigate('/', { state: { scrollTo: 'experience' } })}
         >
-          ← Back to experience
+          ← Back to Experience
         </button>
         <header className="experience-detail-header">
           <div className="experience-detail-brand">
