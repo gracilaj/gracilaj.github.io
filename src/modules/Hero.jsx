@@ -8,8 +8,6 @@ const titleLead = titleParts.join(' ')
 const statChips = [
   { ix: '01', value: '6+', label: 'Years Experience' },
   { ix: '02', value: 'Full-stack', label: 'Web & APIs' },
-  { ix: '03', value: 'LAMP', label: 'Core stack' },
-  { ix: '04', value: 'MERN', label: 'Core stack' },
 ]
 
 export function Hero() {
@@ -34,6 +32,16 @@ export function Hero() {
             <SectionScrollLink sectionId="contact" className="btn btn-primary">
               Get in touch
             </SectionScrollLink>
+            <a
+              href={profile.resume.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              download={profile.resume.fileName}
+              className="btn btn-ghost btn-with-icon"
+            >
+              <span className="btn-icon-download" aria-hidden="true" />
+              Download resume
+            </a>
             <SectionScrollLink sectionId="experience" className="btn btn-ghost btn-with-icon">
               <span className="btn-icon-play" aria-hidden="true" />
               Browse Experience

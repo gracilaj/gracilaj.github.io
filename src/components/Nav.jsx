@@ -1,7 +1,8 @@
 import { useRef, useCallback } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { experiences } from '../data/experience'
 import { SectionScrollLink } from './SectionScrollLink'
+import { useActiveSection } from '../hooks/useActiveSection'
 
 const sectionLinks = [
   { id: 'objective', label: 'Objective' },
@@ -12,16 +13,26 @@ const sectionLinks = [
   { id: 'contact', label: 'Contact' },
 ]
 
+const SECTION_IDS = sectionLinks.map((s) => s.id)
+
 export function Nav() {
+  const location = useLocation()
   const navMobileRef = useRef(null)
   const closeMobileMenu = useCallback(() => {
     navMobileRef.current?.removeAttribute('open')
   }, [])
+  const activeSectionId = useActiveSection(SECTION_IDS, location.pathname)
+  const onExperiencePage = location.pathname.startsWith('/experience')
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link to="/" className="logo" onClick={closeMobileMenu}>
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => `logo${isActive ? ' is-active' : ''}`}
+          onClick={closeMobileMenu}
+        >
           <span className="logo-mark-box" aria-hidden="true">
             <span className="logo-mark-lines">
               <span />
@@ -30,16 +41,25 @@ export function Nav() {
             </span>
           </span>
           <span className="logo-text">JG</span>
-        </Link>
+        </NavLink>
         <nav className="nav-primary" aria-label="Primary">
           {sectionLinks.map(({ id, label }) => (
-            <SectionScrollLink key={id} sectionId={id} className="nav-link">
+            <SectionScrollLink
+              key={id}
+              sectionId={id}
+              className="nav-link"
+              isActive={activeSectionId === id}
+            >
               {label}
             </SectionScrollLink>
           ))}
         </nav>
         <details className="nav-roles nav-roles-desktop">
-          <summary className="nav-roles-summary">Roles</summary>
+          <summary
+            className={`nav-roles-summary${onExperiencePage ? ' is-active-route' : ''}`}
+          >
+            Roles
+          </summary>
           <div className="nav-roles-panel">
             {experiences.map((job) => (
               <NavLink
@@ -77,6 +97,7 @@ export function Nav() {
                   key={id}
                   sectionId={id}
                   className="nav-mobile-link"
+                  isActive={activeSectionId === id}
                   onActivate={closeMobileMenu}
                 >
                   {label}

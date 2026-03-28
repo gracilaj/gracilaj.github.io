@@ -116,6 +116,11 @@ a:hover {
   color: var(--text);
 }
 
+.logo.is-active .logo-mark-box {
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.22);
+}
+
 .logo-mark-box {
   width: 2.5rem;
   height: 2.5rem;
@@ -163,6 +168,12 @@ a:hover {
   color: var(--accent);
 }
 
+.nav-link.is-active {
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 0 var(--accent);
+}
+
 .nav-roles-desktop {
   position: relative;
   display: none;
@@ -189,6 +200,14 @@ a:hover {
 .nav-roles-desktop[open] .nav-roles-summary {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
+}
+
+.nav-roles-summary.is-active-route {
+  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.35);
+}
+
+.nav-roles-desktop[open] .nav-roles-summary.is-active-route {
+  box-shadow: none;
 }
 
 .nav-roles-panel {
@@ -270,6 +289,11 @@ a:hover {
   color: var(--accent-ink);
 }
 
+.nav-mobile[open] .nav-mobile-trigger {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
 .nav-mobile-trigger::-webkit-details-marker {
   display: none;
 }
@@ -329,6 +353,12 @@ a:hover {
 .nav-mobile-link:hover {
   color: var(--accent);
   background: rgba(100, 255, 218, 0.06);
+}
+
+.nav-mobile-link.is-active {
+  color: var(--accent);
+  background: rgba(100, 255, 218, 0.12);
+  font-weight: 700;
 }
 
 .nav-mobile-heading {
@@ -540,6 +570,45 @@ a:hover {
   border-width: 5px 0 5px 8px;
   border-color: transparent transparent transparent var(--accent);
   margin-left: 3px;
+}
+
+.btn-icon-download {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: rgba(100, 255, 218, 0.08);
+  position: relative;
+}
+
+.btn-icon-download::before {
+  content: '';
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4px 5px 4px;
+  border-color: transparent transparent var(--accent) transparent;
+}
+
+.btn-icon-download::after {
+  content: '';
+  position: absolute;
+  bottom: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 6px;
+  border: 2px solid var(--accent);
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  box-sizing: border-box;
 }
 
 .hero-visual {

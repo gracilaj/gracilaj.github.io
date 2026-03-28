@@ -13,6 +13,14 @@ export const profile = {
   objective: `Full-Stack Web Developer with 6 years of experience developing and integrating multi-faceted applications to facilitate smooth business operations. Solution-driven Full-Stack Web Developer adept at contributing to a highly collaborative work environment, finding solutions, and determining customer satisfaction.`,
   /** Portfolio source on GitHub */
   githubRepo: 'https://github.com/gracilaj/gracilaj.github.io',
+  /**
+   * PDF in /public → /resume.pdf. Replace `public/resume.pdf` with your file (or rerun
+   * `node scripts/write-placeholder-resume.mjs` for a tiny placeholder). Commit the PDF so deploy includes it.
+   */
+  resume: {
+    url: '/resume.pdf',
+    fileName: 'Jake-Gracila-Resume.pdf',
+  },
   contact: {
     location: 'Dasmariñas, Cavite',
     email: 'gracilaj@gmail.com',
