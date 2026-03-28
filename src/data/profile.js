@@ -8,7 +8,7 @@ export const profile = {
   tagline: '5+ years building web applications, APIs, and integrations.',
   heroBio: `Full-Stack Web Developer with 5 years of experience building web applications, APIs, and integrations. Collaborative, solution-driven, and focused on shipping reliable software.`,
   /** Swap this file in /public for your own photo */
-  heroImage: '/hero-portrait.jpg',
+  heroImage: '/profile.jpg',
   heroImageAlt: 'Jake Gracila',
   objective: `Full-Stack Web Developer with 5 years of experience developing and integrating multi-faceted applications to facilitate smooth business operations. Solution-driven Full-Stack Web Developer adept at contributing to a highly collaborative work environment, finding solutions, and determining customer satisfaction.`,
   /** Portfolio source on GitHub */
