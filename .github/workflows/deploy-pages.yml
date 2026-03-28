@@ -35,3 +35,12 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
+      - name: Pages source reminder
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "IMPORTANT: GitHub Pages must publish the BUILT site."
+          echo "Repo Settings → Pages → Build and deployment → Source:"
+          echo "  Branch: gh-pages   Folder: / (root)"
+          echo "NOT branch main (that only has source code — blank page)."
+          echo "=========================================="
