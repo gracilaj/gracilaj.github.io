@@ -14,11 +14,11 @@ export const profile = {
   /** Portfolio source on GitHub */
   githubRepo: 'https://github.com/gracilaj/gracilaj.github.io',
   /**
-   * PDF in /public → /resume.pdf. Replace `public/resume.pdf` with your file (or rerun
+   * PDF in /public → /gracila.pdf. Replace the file in public/ (or rerun
    * `node scripts/write-placeholder-resume.mjs` for a tiny placeholder). Commit the PDF so deploy includes it.
    */
   resume: {
-    url: '/resume.pdf',
+    url: '/gracila.pdf',
     fileName: 'Jake-Gracila-Resume.pdf',
   },
   contact: {

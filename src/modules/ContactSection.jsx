@@ -25,13 +25,7 @@ export function ContactSection() {
         </li>
         <li>
           <span className="contact-label">Resume</span>
-          <a
-            href={resume.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={resume.fileName}
-            className="contact-value"
-          >
+          <a href={resume.url} download={resume.fileName} className="contact-value">
             Download PDF
           </a>
         </li>

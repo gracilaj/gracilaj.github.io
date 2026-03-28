@@ -39,8 +39,6 @@ export function Hero() {
             </SectionScrollLink>
             <a
               href={profile.resume.url}
-              target="_blank"
-              rel="noopener noreferrer"
               download={profile.resume.fileName}
               className="btn btn-ghost btn-with-icon btn-hero-action"
               aria-label="Download resume"

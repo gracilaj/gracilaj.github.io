@@ -20,7 +20,7 @@ obj(
   '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>',
 )
 const stream =
-  'BT /F1 14 Tf 72 720 Td (Placeholder: replace public/resume.pdf with your real CV.) Tj 0 -24 Td (Jake Gracila - Portfolio) Tj ET'
+  'BT /F1 14 Tf 72 720 Td (Placeholder: replace public/gracila.pdf with your real CV.) Tj 0 -24 Td (Jake Gracila - Portfolio) Tj ET'
 obj(4, `<< /Length ${Buffer.byteLength(stream, 'latin1')} >>\nstream\n${stream}\nendstream`)
 obj(5, '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>')
 
